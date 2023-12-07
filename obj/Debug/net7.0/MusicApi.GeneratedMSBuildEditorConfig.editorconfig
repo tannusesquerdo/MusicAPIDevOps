@@ -12,6 +12,6 @@ build_property.RootNamespace = MusicApi
 build_property.ProjectDir = /Users/tannusesquerdo/Developer/centennial/devops/MusicApi/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = /Users/tannusesquerdo/Developer/centennial/devops/MusicApi
 build_property._RazorSourceGeneratorDebug = 
