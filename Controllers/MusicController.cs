@@ -69,4 +69,23 @@ public class MusicController : ControllerBase
 
         return Ok("Music created successfully");
     }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateMusic(string id, MusicDto musicDto)
+    {
+        var existingMusic = await _musicRepository.GetMusicById(id);
+        if (existingMusic == null)
+        {
+            return NotFound();
+        }
+
+        existingMusic.Title = musicDto.Title;
+        existingMusic.Artist = musicDto.Artist;
+        existingMusic.S3BucketKey = musicDto.S3BucketKey;
+        // Update other properties as needed
+
+        await _musicRepository.UpdateMusic(existingMusic);
+
+        return Ok("Music updated successfully");
+    }
 }
