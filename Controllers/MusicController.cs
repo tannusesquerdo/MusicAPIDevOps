@@ -52,4 +52,21 @@ public class MusicController : ControllerBase
 
         return Ok(musicDto);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateMusic(MusicDto musicDto)
+    {
+        var musicEntity = new MusicEntity
+        {
+            Id = Guid.NewGuid().ToString(), // Generate a unique ID
+            Title = musicDto.Title,
+            Artist = musicDto.Artist,
+            S3BucketKey = musicDto.S3BucketKey,
+            // Map other properties as needed
+        };
+
+        await _musicRepository.CreateMusic(musicEntity);
+
+        return Ok("Music created successfully");
+    }
 }
