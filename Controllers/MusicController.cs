@@ -88,4 +88,12 @@ public class MusicController : ControllerBase
 
         return Ok("Music updated successfully");
     }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteMusic(string id)
+    {
+        await _musicRepository.DeleteMusic(id);
+
+        return Ok("Music deleted successfully");
+    }
 }
